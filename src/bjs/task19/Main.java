@@ -2,6 +2,35 @@ package bjs.task19;
 
 import java.util.*;
 
+abstract class A {
+    protected void call() {
+        System.out.println("class A called");
+    }
+}
+
+class B extends A {
+    protected void call() {
+        System.out.println("class B called");
+    }
+}
+
+// Простой пример абстрактного класса.
+/*abstract class A {
+    abstract void callme();
+
+    // абстрактные классы все же могут содержать конкретные методы
+    protected void callmetoo() {
+        System.out.println("Это конкретный метод класса А.");
+    }
+}
+
+class B extends A {
+    void callme() {
+        System.out.println("Реализация метода callme класса В.");
+    }
+}*/
+
+
 public class Main {
 
     public static void main(String[] args) {
@@ -19,7 +48,16 @@ public class Main {
 
         while(keys.hasMoreElements()) {
             String key = keys.nextElement().toString();
-            System.out.println("Key: " + key + ", Value: " + hashtable.get(key));
+            //System.out.println("Key: " + key + ", Value: " + hashtable.get(key));
         }
+
+        A obj = new B();
+        obj.call();
+
+        /*A ob1;
+        B ob2 = new B();
+        ob1 = (A) ob2; // явное приведение ob1 = ob2; автоматическое приведение
+        ob1.callme();*/
+
     }
 }
